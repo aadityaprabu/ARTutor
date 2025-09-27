@@ -1,28 +1,107 @@
 # ARTutor
-This project aims to develop a Unity AR application that leverages
-MediaPipe as the body tracking package in Python. The application incorporates
-buffer queues and multithreading to enhance the efficiency and real-time
-interaction of the system. The body tracking process begins with MediaPipe,
-which provides models for accurate body pose estimation. The tracked data
-undergoes processing and analysis in Python, and is broken into chunks and
-broadcasted with delimiters. On the receiving side, a UDP packet receiver
-thread, written in C# , receives the key point landmarks of the tracked human
-and stores the chunks in a buffer queue and assembles them and converts the
-assembled chunks back into keypoint-landmarks in a separate thread and
-forwards it to the keypoint mapper function which takes care of mapping the
-coordinates with 3d Character. The Unity AR Foundation Package coupled with
-AR Core library takes care of augmenting the character in the real environment
-where learners can observe and interact with a humanoid avatar representing the
-performers's movements. The integration of buffer queues and multithreading
-improves synchronization, data flow, and performance, creating an immersive
-and interactive learning experience. The proposed system addresses the
-limitations of traditional teaching methods by providing an engaging and
-realistic virtual learning environment. By utilizing MediaPipe for body tracking,
-Python for data processing, sockets for real-time communication, and Unity for
-AR application development, this project presents a comprehensive solution that
-enables learners to visualize and mimic the performer's movements in a
-dynamic and interactive manner.
-<br>
-[Click For full Documentation](https://github.com/Aadityaprabu002/ARTutor/blob/main/Documentation/ARTUTOR.pdf)
-<br>
-[Click here for demo](https://youtube.com/playlist?list=PLCk1Y31wvMhXjcgWnek1wSJLmZKr1x8f1)
+
+ARTutor or ART is a Unity-based Augmented Reality (AR) application designed to provide an **interactive learning environment** by combining **MediaPipe body tracking**, **Python-based data processing**, and **Unity AR Foundation** for real-time humanoid avatar animation.
+
+---
+
+## ✨ Features
+
+- **Body Tracking with MediaPipe (Python)**
+
+  - Accurate body pose estimation.
+  - Keypoint data processing and chunked broadcasting.
+
+- **Real-time Data Communication**
+
+  - UDP sockets for transmitting body landmarks.
+  - Efficient buffer queues and multithreading for smooth streaming.
+
+- **Unity Integration**
+
+  - C# receiver threads for packet reassembly.
+  - Keypoint-to-avatar mapping for realistic humanoid animation.
+  - AR Foundation + ARCore integration for real-world augmentation.
+
+- **Immersive Learning Experience**
+  - Learners can visualize and mimic performer movements.
+  - Enhances traditional teaching with engaging AR environments.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Python** – MediaPipe body tracking, data preprocessing.
+- **Sockets (UDP)** – Real-time communication between Python and Unity.
+- **Unity (C#)** – AR application, packet processing, and avatar animation.
+- **AR Foundation + ARCore** – AR deployment on mobile devices.
+
+---
+
+## 📂 Project Workflow
+
+1. **Tracking** → MediaPipe captures body pose keypoints.
+2. **Processing** → Python preprocesses and splits data into chunks.
+3. **Broadcasting** → Data sent over UDP with delimiters.
+4. **Receiving** → Unity C# receiver thread reconstructs the data.
+5. **Mapping** → Keypoints mapped to a 3D character.
+6. **Augmentation** → AR Foundation + ARCore display avatar in real-world AR.
+
+---
+
+## 📷 Demo & Documentation
+
+- [📄 Full Documentation](Documentation/ARTutor-report.pdf)
+- [▶️ Demo Playlist](https://youtube.com/playlist?list=PLCk1Y31wvMhXjcgWnek1wSJLmZKr1x8f1)
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- **Python 3.7+**
+- **MediaPipe**
+- **Unity 2020+**
+- **AR Foundation & ARCore XR Plugin**
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/aadityaprabu/ARTutor.git
+   cd ARTutor
+   ```
+
+2. Install Python dependencies:
+
+   ```bash
+   pip install mediapipe opencv-python
+   ```
+
+3. Open the Unity project in the Unity Editor.
+
+4. Connect the Python backend and Unity frontend using UDP sockets.
+
+5. Deploy the Unity AR app to your mobile device.
+
+---
+
+## 📜 License
+
+This project is licensed under the **MIT License**. See the [LICENSE](./LICENSE) file for details.
+
+---
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!  
+Feel free to open an issue or submit a pull request.
+
+---
+
+## 👨‍💻 Author
+
+**Aaditya Prabu**
+
+- GitHub: [@aadityaprabu](https://github.com/aadityaprabu)
